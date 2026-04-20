@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 import logging
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from claude_call import call_claude_json
@@ -39,6 +39,10 @@ PICK_PROMPT = """你是资深 AI/LLM 资讯编辑，给中文 AI 工程师做每
 4. 多样性：同主题最多选 3 条，避免 10 篇都是模型发布
 5. 来源权威性：算法分已考虑，但你可基于内容质量调整
 6. 排除：重复主题、纯八卦、低质量博客、明显标题党
+7. **去重**：下面会给你过去 14 天已推送的文章清单。候选里任何与这些**语义相同**的文章都必须跳过——即使 URL 不同也算重复（例如同一篇论文的 arxiv 链接 + HN 讨论链接 + Twitter 总结；或同一模型发布的官方博客 + 媒体转载）。只有当今天出现了**新进展、新数据、新讨论角度**，才考虑再次上榜。
+
+过去 14 天已推送给用户的文章（共 {recent_n} 篇，若今日候选与其语义重合必须过滤）：
+{recent_picks}
 
 为每篇选中的文章打主题标签（从下面列表 1-3 个），并写一个 10-25 字的中文标题（要传神，不要直译）。
 
@@ -69,7 +73,32 @@ def simplify_for_prompt(article: dict) -> dict:
     }
 
 
-def main(date: str | None = None):
+def load_recent_picks(days: int, exclude_date: str) -> list[dict]:
+    """最近 N 天已推送的文章，用于语义去重。"""
+    cutoff = datetime.now(timezone.utc).date() - timedelta(days=days)
+    out = []
+    for f in sorted(PICKED_DIR.glob("*.json")):
+        if f.stem == exclude_date:
+            continue
+        try:
+            fd = datetime.strptime(f.stem, "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if fd < cutoff:
+            continue
+        data = json.loads(f.read_text(encoding="utf-8"))
+        for a in data.get("articles", []):
+            out.append({
+                "date": f.stem,
+                "source": a.get("source", ""),
+                "zh_title": a.get("zh_title", ""),
+                "en_title": a.get("title", "")[:120],
+                "topics": a.get("topics", []),
+            })
+    return out
+
+
+def main(date: str | None = None, recap_days: int = 14):
     date = date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
     scored_file = SCORED_DIR / f"{date}.json"
     if not scored_file.exists():
@@ -78,10 +107,14 @@ def main(date: str | None = None):
 
     scored = json.loads(scored_file.read_text(encoding="utf-8"))
     candidates = [simplify_for_prompt(a) for a in scored["articles"]]
-    log.info("sending %d candidates to Claude for picking", len(candidates))
+    recent = load_recent_picks(days=recap_days, exclude_date=date)
+    log.info("sending %d candidates + %d recent picks (%dd) to Claude",
+             len(candidates), len(recent), recap_days)
 
     prompt = PICK_PROMPT.format(
         n=len(candidates),
+        recent_n=len(recent),
+        recent_picks=json.dumps(recent, ensure_ascii=False, indent=2) if recent else "[]",
         candidates=json.dumps(candidates, ensure_ascii=False, indent=2),
     )
     picks = call_claude_json(prompt, timeout=600)
