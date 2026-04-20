@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}AI Daily 每日精选{% endblock %}</title>
+  <link rel="stylesheet" href="{{ assets_prefix }}assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{{ root_prefix }}index.html">
+      <span class="brand-mark">◆</span>
+      <span class="brand-name">AI Daily</span>
+    </a>
+    <nav>
+      <a href="{{ root_prefix }}index.html">今日</a>
+      <a href="{{ root_prefix }}archive/index.html">归档</a>
+    </nav>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <p>每日 AI/LLM 资讯精选 · 由 Claude 编辑与翻译 · 生成于 {{ generated_at }}</p>
+  </footer>
+</body>
+</html>

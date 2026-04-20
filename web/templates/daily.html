@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}{{ date_display }} · AI Daily{% endblock %}
+{% block content %}
+<article class="daily">
+  <header class="daily-header">
+    <p class="kicker">{{ date_display }} · 每日精选</p>
+    <h1>{{ headline }}</h1>
+    <p class="meta">
+      共 {{ articles|length }} 篇 · 覆盖 {{ source_count }} 个来源 · 算法初筛 {{ total_input }} 篇
+    </p>
+  </header>
+
+  {% if intro %}
+  <section class="intro">
+    {{ intro }}
+  </section>
+  {% endif %}
+
+  <ol class="articles">
+  {% for a in articles %}
+    <li class="article" id="a-{{ a.rank }}">
+      <div class="rank">#{{ a.rank }}</div>
+      <div class="body">
+        <h2><a href="{{ a.url }}" target="_blank" rel="noopener">{{ a.zh_title }}</a></h2>
+        <p class="article-meta">
+          <span class="source">{{ a.source }}</span>
+          {% for t in a.topics %}<span class="tag">{{ t }}</span>{% endfor %}
+        </p>
+        <p class="why">{{ a.pick_reason }}</p>
+        <p class="summary">{{ a.zh_summary }}</p>
+        <p class="orig">
+          <a href="{{ a.url }}" target="_blank" rel="noopener">→ 阅读原文</a>
+          <span class="orig-title">{{ a.title }}</span>
+        </p>
+      </div>
+    </li>
+  {% endfor %}
+  </ol>
+
+  {% if prev_date or next_date %}
+  <nav class="day-nav">
+    {% if prev_date %}<a href="{{ prev_date }}.html">← {{ prev_date }}</a>{% endif %}
+    <a href="../archive/index.html">归档</a>
+    {% if next_date %}<a href="{{ next_date }}.html">{{ next_date }} →</a>{% endif %}
+  </nav>
+  {% endif %}
+</article>
+{% endblock %}

@@ -1,0 +1,377 @@
+{
+  "date": "2026-04-20",
+  "picked_at": "2026-04-20T12:18:19.857322+00:00",
+  "count": 10,
+  "articles": [
+    {
+      "id": "b8af8104c423c106",
+      "source": "anthropic_news",
+      "category": "lab_official",
+      "title": "Introducing Claude Opus 4.7 Product Apr 16, 2026 Our latest Opus model brings stronger performance across coding, agents, vision, and multi-step tasks, with greater thoroughness and consistency on the work that matters most.",
+      "url": "https://www.anthropic.com/news/claude-opus-4-7",
+      "summary": "",
+      "published": "2026-04-20T12:14:33.483437+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "slug": "/news/claude-opus-4-7"
+      },
+      "score": 0.8,
+      "score_breakdown": {
+        "source_authority": 1.0,
+        "topic_match": 0.667,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture",
+        "model_release",
+        "multimodal"
+      ],
+      "rank": 1,
+      "topics": [
+        "model_release",
+        "agent_architecture",
+        "multimodal"
+      ],
+      "zh_title": "Claude Opus 4.7 正式发布：编码与智能体能力再升级",
+      "pick_reason": "Anthropic 最新旗舰模型，今日最值得关注的模型发布",
+      "zh_summary": "Anthropic 发布 Claude Opus 4.7，定位为面向编码、agent、视觉与多步任务的新一代旗舰模型，主打更高的彻底性与一致性，尤其针对工程师日常高价值工作场景。相较前代 Opus，新版本强调在长链路 agent 执行、tool use 与多轮决策中减少中途放弃或偷懒，保持推理深度稳定。官方同时提到视觉能力的增强，可用于读图、界面理解等多模态工程场景。原文未透露具体 benchmark 分数、context window 变化、定价与上下文缓存细节，也未说明与 Sonnet 4.6、Haiku 4.5 的分工边界。对中文 AI 工程师的实际意义：如果你在用 Claude 搭建 coding agent、长流程自动化或需要高稳定性的 RAG/tool use 管线，值得点开原文核对版本号、API 模型 ID（claude-opus-4-7）和具体能力曲线，判断是否需要把生产链路从 4.6 升级到 4.7；纯对话或轻量任务则收益有限。"
+    },
+    {
+      "id": "c78d84ac1a7e3d92",
+      "source": "anthropic_engineering",
+      "category": "lab_official",
+      "title": "Featured Quantifying infrastructure noise in agentic coding evals Infrastructure configuration can swing agentic coding benchmarks by several percentage points—sometimes more than the leaderboard gap between top models.",
+      "url": "https://www.anthropic.com/engineering/infrastructure-noise",
+      "summary": "",
+      "published": "2026-04-20T12:14:38.424352+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "slug": "/engineering/infrastructure-noise"
+      },
+      "score": 0.9,
+      "score_breakdown": {
+        "source_authority": 1.0,
+        "topic_match": 1.0,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture",
+        "model_release",
+        "benchmark_eval"
+      ],
+      "rank": 2,
+      "topics": [
+        "benchmark_eval",
+        "agent_architecture"
+      ],
+      "zh_title": "基础设施噪声能掀翻 Coding 榜单几个点",
+      "pick_reason": "Anthropic 官方研究，揭示 agent 评测中被忽视的系统性偏差",
+      "zh_summary": "同一个模型跑同一套 agentic coding benchmark，仅仅因为基础设施配置不同，分数就能浮动好几个百分点，这个幅度往往超过排行榜上头部模型之间的差距。也就是说，当你看到某模型比另一家高 1-2 分就得出\"更强\"的结论时，很可能被 infra noise 误导：沙箱镜像、网络延迟、文件系统、工具调用的超时与重试策略、并发度、甚至 shell 版本都会显著改变 agent 的成功率。对工程师的实际意义有三点：自建评测时必须固定并公开 infra 配置，否则跑分没有可比性；复现 SWE-bench、Terminal-bench 这类榜单前要对齐执行环境，而不是只对齐模型与 prompt；选型时应关注置信区间和多次运行的方差，而非单次 leaderboard 名次。原文应有 Anthropic 给出的量化实验数据与具体配置维度拆解，但列表页未透露具体数字，想看确切的噪声幅度和消融结论需点进原文。"
+    },
+    {
+      "id": "1ecdad90bfb46efd",
+      "source": "openai_blog",
+      "category": "lab_official",
+      "title": "The next evolution of the Agents SDK",
+      "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk",
+      "summary": "OpenAI updates the Agents SDK with native sandbox execution and a model-native harness, helping developers build secure, long-running agents across files and tools.",
+      "published": "2026-04-15T10:00:00+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": ""
+      },
+      "score": 0.8082,
+      "score_breakdown": {
+        "source_authority": 1.0,
+        "topic_match": 1.0,
+        "engagement": 0.5,
+        "recency": 0.388
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture",
+        "developer_tools"
+      ],
+      "rank": 3,
+      "topics": [
+        "agent_architecture",
+        "developer_tools"
+      ],
+      "zh_title": "OpenAI Agents SDK 大更新：原生沙箱与模型自带执行框架",
+      "pick_reason": "OpenAI 官方 agent 工具链迭代，工程师直接受益",
+      "zh_summary": "Agents SDK 新增原生 sandbox 执行环境与 model-native harness 两大能力，把原先需要自行搭建的隔离运行层和 agent 调度骨架内置到 SDK 里。sandbox 面向需要执行不可信代码、访问文件系统和调用 tool use 的场景，让长时运行的 agent 可以在受控环境里跨文件操作而不污染宿主；model-native harness 则把循环控制、工具调度等 scaffolding 下沉到模型侧，减少开发者手写状态机和重试逻辑的负担。对工程师的实际意义在于，构建 coding agent、数据处理 agent 这类需要长链路 tool use 的应用时，可以少依赖 Docker、E2B 等第三方隔离方案，也不必再围绕 ReAct 风格循环反复调参。原文未透露具体细节，包括 sandbox 的底层实现、资源配额、计费模型，以及 harness 与既有 Responses API、Assistants API 的边界划分，想评估迁移成本和 vendor lock-in 风险的话需要点进原文确认。"
+    },
+    {
+      "id": "e72047652dc3db52",
+      "source": "simon_willison",
+      "category": "individual_expert",
+      "title": "Changes in the system prompt between Claude Opus 4.6 and 4.7",
+      "url": "https://simonwillison.net/2026/Apr/18/opus-system-prompt/#atom-everything",
+      "summary": "Anthropic are the only major AI lab to publish the system prompts for their user-facing chat systems. Their system prompt archive now dates all the way back to Claude 3 in July 2024 and it's always interesting to see how the system prompt evolves as they publish new models. Opus 4.7 shipped the other day (April 16, 2026) with a Claude.ai system prompt update since Opus 4.6 (February 5, 2026). I had Claude Code take the Markdown version of their system prompts , break that up into separate documents for each of the models and then construct a Git history of those files over time with fake commit dates representing the publication dates of each updated prompt - here's the prompt I used with Claude Code for the web. Here is the git diff between Opus 4.6 and 4.7 . These are my own highlights extracted from that diff - in all cases text in bold is my emphasis: The \"developer platform\" is now called the \"Claude Platform\". The list of Claude tools mentioned in the system prompt now includes \"Claude in Chrome - a browsing agent that can interact with websites autonomously, Claude in Excel - a spreadsheet agent, and Claude in Powerpoint - a slides agent. Claude Cowork can use all of these a",
+      "published": "2026-04-18T23:59:40+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": ""
+      },
+      "score": 0.8483,
+      "score_breakdown": {
+        "source_authority": 0.9,
+        "topic_match": 1.0,
+        "engagement": 0.5,
+        "recency": 0.889
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture",
+        "llm_engineering",
+        "developer_tools"
+      ],
+      "rank": 4,
+      "topics": [
+        "llm_engineering",
+        "developer_tools"
+      ],
+      "zh_title": "逐字对比 Claude Opus 4.6 → 4.7 系统提示词变化",
+      "pick_reason": "Simon 深挖官方 prompt 演进，prompt 工程一手素材",
+      "zh_summary": "Anthropic 是目前唯一持续公开其 chat 产品 system prompt 的大厂，archive 可回溯至 2024 年 7 月的 Claude 3。Simon Willison 让 Claude Code 把这份 Markdown 归档拆成按模型分文件的仓库，并以各版本发布日为提交时间伪造 git 历史，便于直接 diff。针对 2026-04-16 上线的 Opus 4.7 与 2026-02-05 的 4.6 对比，作者摘出几处值得注意的变动：原先的\"developer platform\"改名为\"Claude Platform\"；system prompt 列出的 Claude 工具族扩展到 Claude in Chrome（可自主操作网页的 browsing agent）、Claude in Excel（表格 agent）、Claude in Powerpoint（幻灯片 agent），并明确 Claude Cowork 能调度这几个 agent 协同工作。对工程师的实际意义：可以据此推断 Anthropic 在把 agent 能力下沉进日常办公套件，并借 system prompt 向模型披露这些工具的存在。原文未透露具体 diff 行数与其他文本改动细节，需点进去看完整 diff。"
+    },
+    {
+      "id": "55e625e03c8e56a9",
+      "source": "simon_willison",
+      "category": "individual_expert",
+      "title": "Headless everything for personal AI",
+      "url": "https://simonwillison.net/2026/Apr/19/headless-everything/#atom-everything",
+      "summary": "Headless everything for personal AI Matt Webb thinks headless services are about to become much more common: Why? Because using personal AIs is a better experience for users than using services directly (honestly); and headless services are quicker and more dependable for the personal AIs than having them click round a GUI with a bot-controlled mouse. Evidently Marc Benioff thinks so too : Welcome Salesforce Headless 360: No Browser Required! Our API is the UI. Entire Salesforce & Agentforce & Slack platforms are now exposed as APIs, MCP, & CLI. All AI agents can access data, workflows, and tasks directly in Slack, Voice, or anywhere else with Salesforce Headless. If this model does take off it's going to play havoc with existing per-head SaaS pricing schemes. I'm reminded of the early 2010s era when every online service was launching APIs. Brandur Leach reminisces about that time in The Second Wave of the API-first Economy , and predicts that APIs are ready to make a comeback: Suddenly, an API is no longer liability, but a major saleable vector to give users what they want: a way into the services they use and pay for so that an agent can carry out work on their behalf. Especially",
+      "published": "2026-04-19T21:46:38+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": ""
+      },
+      "score": 0.865,
+      "score_breakdown": {
+        "source_authority": 0.9,
+        "topic_match": 1.0,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture",
+        "model_release",
+        "developer_tools"
+      ],
+      "rank": 5,
+      "topics": [
+        "agent_architecture",
+        "developer_tools"
+      ],
+      "zh_title": "Headless 服务崛起：给个人 AI 用的 API 新范式",
+      "pick_reason": "探讨 agent 时代服务形态变革，有启发性",
+      "zh_summary": "Matt Webb 判断 headless 服务即将大规模回潮：个人 AI 直接调用 API 远比让 agent 操纵鼠标点 GUI 更快、更稳，用户体验也更好。Salesforce 刚发布 Headless 360，把 Salesforce、Agentforce、Slack 全平台以 API、MCP 和 CLI 形式开放，Benioff 的口号是\"API 就是 UI\"，AI agent 可直达数据和工作流。Brandur Leach 在 The Second Wave of the API-first Economy 中预测，API 正从过去的负担重新变为卖点——让用户的 agent 能替他们干活。对工程师的现实意义：按席位计费的 SaaS 定价模型可能被冲垮，重演 2010 年代初那波 API 浪潮；后续做 agent 集成时，MCP 和 CLI 可能比浏览器自动化更值得押注。原文未透露具体定价或采用数据，主要是趋势判断和行业信号汇总。"
+    },
+    {
+      "id": "139b6be8f85ab9ce",
+      "source": "arxiv_cs_lg",
+      "category": "papers",
+      "title": "${\\pi}_{0.7}$: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
+      "url": "https://arxiv.org/abs/2604.15483",
+      "summary": "We present a new robotic foundation model, called ${\\pi}_{0.7}$, that can enable strong out-of-the-box performance in a wide range of scenarios. ${\\pi}_{0.7}$ can follow diverse language instructions in unseen environments, including multi-stage tasks with various kitchen appliances, provide zero-shot cross-embodiment generalization, for example enabling a robot to fold laundry without seeing the task before, and perform challenging tasks such as operating an espresso machine out of the box at a level of performance that matches much more specialized RL-finetuned models. The main idea behind ${\\pi}_{0.7}$ is to use diverse context conditioning during training. This conditioning information, contained in the prompt, makes it possible to steer the model precisely to perform many tasks with different strategies. It is conditioned not just on a language command that describes what it should do, but on additional multimodal information that also describes the manner or strategy in which it ",
+      "published": "2026-04-20T04:00:00+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": "Physical Intelligence, Bo Ai, Ali Amin, Raichelle Aniceto, Ashwin Balakrishna, Greg Balke, Kevin Black, George Bokinsky, Shihao Cao, Thomas Charbonnier, Vedant Choudhary, Foster Collins, Ken Conley, Grace Connors, James Darpinian, Karan Dhabalia, Maitrayee Dhaka, Jared DiCarlo, Danny Driess, Michael Equi, Adnan Esmail, Yunhao Fang, Chelsea Finn, Catherine Glossop, Thomas Godden, Ivan Goryachev, Lachlan Groom, Haroun Habeeb, Hunter Hancock, Karol Hausman, Gashon Hussein, Victor Hwang, Brian Ichter, Connor Jacobsen, Szymon Jakubczak, Rowan Jen, Tim Jones, Gregg Kammerer, Ben Katz, Liyiming Ke, Mairbek Khadikov, Chandra Kuchi, Marinda Lamb, Devin LeBlanc, Brendon LeCount, Sergey Levine, Xinyu Li, Adrian Li-Bell, Vladislav Lialin, Zhonglin Liang, Wallace Lim, Yao Lu, Enyu Luo, Vishnu Mano, Nandan Marwaha, Aikys Mongush, Liam Murphy, Suraj Nair, Tyler Patterson, Karl Pertsch, Allen Z. Ren, Gavin Schelske, Charvi Sharma, Baifeng Shi, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, Will Stoeckle, Jiaming Tang, Jimmy Tanner, Shalom Tekeste, Marcel Torne, Kyle Vedder, Quan Vuong, Anna Walling, Haohuan Wang, Jason Wang, XuDong Wang, Chris Whalen, Samuel Whitmore, Blake Williams, Charles Xu, Sukwon Yoo, Lili Yu, Wuming Zhang, Zhuoyang Zhang, Ury Zhilinsky"
+      },
+      "score": 0.7875,
+      "score_breakdown": {
+        "source_authority": 0.85,
+        "topic_match": 0.8,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "llm_engineering",
+        "multimodal",
+        "fine_tuning",
+        "developer_tools"
+      ],
+      "rank": 6,
+      "topics": [
+        "multimodal",
+        "fine_tuning"
+      ],
+      "zh_title": "π0.7：可调控的通用机器人基础模型登场",
+      "pick_reason": "具身智能重要进展，零样本跨形态泛化",
+      "zh_summary": "π0.7 是一款机器人基础模型，主打开箱即用的跨场景泛化能力：能在未见过的厨房环境中听懂多阶段语言指令、操作各类家电，零样本完成叠衣服这类新任务，甚至能直接操作意式咖啡机，水准接近专门为该任务做过 RL-finetuning 的特化模型。核心方法是训练阶段引入 diverse context conditioning——prompt 里不仅包含\"做什么\"的语言指令，还塞入多模态信息来描述\"怎么做\"的策略或风格，从而让同一个模型能被精确 steer 到不同的执行方式上，而不是只会一种刻板动作。对做具身智能、VLA 模型或机器人策略学习的工程师来说，关注点在于：如何用 context/prompt 维度而非换模型或再训练，去切换机器人行为模式，以及跨 embodiment 迁移到底能走多远。原文未透露具体的数据规模、模型架构与 benchmark 数字，想看量化对比需自行查阅论文。"
+    },
+    {
+      "id": "16da042fe3330581",
+      "source": "arxiv_cs_cl",
+      "category": "papers",
+      "title": "Qwen3.5-Omni Technical Report",
+      "url": "https://arxiv.org/abs/2604.15804",
+      "summary": "In this work, we present Qwen3.5-Omni, the latest advancement in the Qwen-Omni model family. Representing a significant evolution over its predecessor, Qwen3.5-Omni scales to hundreds of billions of parameters and supports a 256k context length. By leveraging a massive dataset comprising heterogeneous text-vision pairs and over 100 million hours of audio-visual content, the model demonstrates robust omni-modality capabilities. Qwen3.5-Omni-plus achieves SOTA results across 215 audio and audio-visual understanding, reasoning, and interaction subtasks and benchmarks, surpassing Gemini-3.1 Pro in key audio tasks and matching it in comprehensive audio-visual understanding. Architecturally, Qwen3.5-Omni employs a Hybrid Attention Mixture-of-Experts (MoE) framework for both Thinker and Talker, enabling efficient long-sequence inference. The model facilitates sophisticated interaction, supporting over 10 hours of audio understanding and 400 seconds of 720P video (at 1 FPS). To address the inh",
+      "published": "2026-04-20T04:00:00+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": "Qwen Team"
+      },
+      "score": 0.7725,
+      "score_breakdown": {
+        "source_authority": 0.85,
+        "topic_match": 0.75,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "benchmark_eval",
+        "rag",
+        "multimodal",
+        "reasoning",
+        "inference_hardware",
+        "developer_tools",
+        "business_news"
+      ],
+      "rank": 7,
+      "topics": [
+        "model_release",
+        "multimodal",
+        "open_source"
+      ],
+      "zh_title": "Qwen3.5-Omni 技术报告：百亿全模态 256k 上下文",
+      "pick_reason": "国产开源全模态模型技术细节，中文工程师必看",
+      "zh_summary": "Qwen3.5-Omni 把参数规模推到数千亿级，context window 扩展至 256k，训练数据含海量文本-视觉配对以及超过 1 亿小时的音视频内容。Qwen3.5-Omni-plus 在 215 项音频与音视频理解、推理、交互子任务 benchmark 上拿下 SOTA，关键音频任务超过 Gemini-3.1 Pro，综合音视频理解与其持平。架构上，Thinker 和 Talker 双模块均采用 Hybrid Attention 与 MoE 结合的混合框架，专为长序列推理做了优化，可一次消化超过 10 小时音频或 400 秒 720P 视频（1 FPS 采样）。对工程师的意义在于：这是开源阵营里首个在音频赛道正面压制 Gemini 闭源旗舰的 omni 模型，且长音视频窗口足以覆盖完整会议录音、长视频字幕生成等真实场景；如果团队在做语音 agent、多模态客服或视频理解产品，值得重点评估。具体训练配方、各子任务分数细节原文未透露。"
+    },
+    {
+      "id": "052cdb97a126fc34",
+      "source": "arxiv_cs_cl",
+      "category": "papers",
+      "title": "Why Fine-Tuning Encourages Hallucinations and How to Fix It",
+      "url": "https://arxiv.org/abs/2604.15574",
+      "summary": "Large language models are prone to hallucinating factually incorrect statements. A key source of these errors is exposure to new factual information through supervised fine-tuning (SFT), which can increase hallucinations w.r.t. knowledge acquired during pre-training. In this work, we explore whether SFT-induced hallucinations can be mitigated using established tools from the continual learning literature, since they arise as a by-product of knowledge degradation during training. We propose a self-distillation-based SFT method that facilitates effective factual learning while minimizing hallucinations w.r.t. pre-existing knowledge by regularizing output-distribution drift. We also show that, in settings where new knowledge acquisition is unnecessary, suppressing factual plasticity by freezing parameter groups, can preserve task performance while reducing hallucinations. Lastly, we investigate the mechanism behind SFT-induced hallucinations through three hypotheses: capacity limitations,",
+      "published": "2026-04-20T04:00:00+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": "Guy Kaplan, Zorik Gekhman, Zhen Zhu, Lotem Rozner, Yuval Reif, Swabha Swayamdipta, Derek Hoiem, Roy Schwartz"
+      },
+      "score": 0.7575,
+      "score_breakdown": {
+        "source_authority": 0.85,
+        "topic_match": 0.7,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "model_release",
+        "rag",
+        "fine_tuning",
+        "inference_hardware",
+        "business_news"
+      ],
+      "rank": 8,
+      "topics": [
+        "fine_tuning",
+        "safety_alignment"
+      ],
+      "zh_title": "为什么微调会让模型更爱幻觉，以及怎么治",
+      "pick_reason": "直击 SFT 引发幻觉的机制与解法，实战价值高",
+      "zh_summary": "SFT 之所以放大幻觉，根源在于它把预训练期间没掌握的新事实硬塞给模型，导致原有知识发生退化。作者把这个问题当作 continual learning 里的知识遗忘来处理，提出一种基于 self-distillation 的 SFT 变体：通过约束输出分布相对于预训练模型的漂移来做正则化，让模型在学到新事实的同时保留旧知识。对于不需要注入新知识、只做格式或任务适配的场景，直接冻结部分参数组来抑制 factual plasticity，就能在保住下游任务指标的前提下显著压低幻觉率。文章还从 capacity limitation 等三个假设出发，试图解释 SFT 诱发幻觉的内在机理，但原文未透露具体的 benchmark 数据和幻觉下降幅度。对正在做领域 fine-tuning、苦于微调后模型胡说八道的工程师来说，这套思路提供了比简单降学习率或混入预训练数据更有针对性的解法，值得翻原文看 loss 设计和冻结策略的细节。"
+    },
+    {
+      "id": "7f4735f6d2fe1b7e",
+      "source": "arxiv_cs_cl",
+      "category": "papers",
+      "title": "Skill-RAG: Failure-State-Aware Retrieval Augmentation via Hidden-State Probing and Skill Routing",
+      "url": "https://arxiv.org/abs/2604.15771",
+      "summary": "Retrieval-Augmented Generation (RAG) has emerged as a foundational paradigm for grounding large language models in external knowledge. While adaptive retrieval mechanisms have improved retrieval efficiency, existing approaches treat post-retrieval failure as a signal to retry rather than to diagnose -- leaving the structural causes of query-evidence misalignment unaddressed. We observe that a significant portion of persistent retrieval failures stem not from the absence of relevant evidence but from an alignment gap between the query and the evidence space. We propose Skill-RAG, a failure-aware RAG framework that couples a lightweight hidden-state prober with a prompt-based skill router. The prober gates retrieval at two pipeline stages; upon detecting a failure state, the skill router diagnoses the underlying cause and selects among four retrieval skills -- query rewriting, question decomposition, evidence focusing, and an exit skill for truly irreducible cases -- to correct misalignm",
+      "published": "2026-04-20T04:00:00+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": "Kai Wei, Raymond Li, Xi Zhu, Zhaoqian Xue, Jiaojiao Han, Jingcheng Niu, Fan Yang"
+      },
+      "score": 0.8025,
+      "score_breakdown": {
+        "source_authority": 0.85,
+        "topic_match": 0.85,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "llm_engineering",
+        "model_release",
+        "rag",
+        "safety_alignment",
+        "developer_tools"
+      ],
+      "rank": 9,
+      "topics": [
+        "rag",
+        "llm_engineering"
+      ],
+      "zh_title": "Skill-RAG：用隐藏态探针诊断检索失败",
+      "pick_reason": "RAG 失败归因新思路，跳出单纯重试范式",
+      "zh_summary": "Skill-RAG 把 RAG 的检索失败当成需要诊断的信号而非简单重试的触发器。作者观察到，大量顽固的检索失败并非因为缺少相关证据，而是 query 与证据空间之间存在 alignment gap。方案由两部分组成：一个轻量的 hidden-state prober 在 pipeline 的两个阶段对检索进行 gating，一旦探测到 failure state，就交给 prompt-based 的 skill router 诊断原因，并从四种检索技能中挑一个来修正——query rewriting、question decomposition、evidence focusing，以及针对\"本质上无解\"情况的 exit skill，主动放弃而不是硬答。对工程师的价值在于：它提供了一种不重训主模型、只靠 hidden-state 探测加 prompt 路由就能插进现有 RAG 流水线的失败自愈机制，尤其适合已经在用 adaptive retrieval 但仍被 query-evidence 错配拖累的场景。具体基准数据与消融结果原文未透露。"
+    },
+    {
+      "id": "8589c87e9bba394d",
+      "source": "anthropic_news",
+      "category": "lab_official",
+      "title": "Apr 6, 2026 Announcements Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute",
+      "url": "https://www.anthropic.com/news/google-broadcom-partnership-compute",
+      "summary": "",
+      "published": "2026-04-20T12:14:33.483796+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "slug": "/news/google-broadcom-partnership-compute"
+      },
+      "score": 0.79,
+      "score_breakdown": {
+        "source_authority": 1.0,
+        "topic_match": 0.633,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "model_release",
+        "multimodal"
+      ],
+      "rank": 10,
+      "topics": [
+        "business_news",
+        "inference_hardware"
+      ],
+      "zh_title": "Anthropic 联手谷歌博通，锁定数吉瓦算力",
+      "pick_reason": "算力格局重要信号，影响行业供给侧",
+      "zh_summary": "Anthropic 宣布扩大与 Google 和 Broadcom 的合作，将部署数 GW（gigawatts）级别的新一代算力，用于训练与推理下一代 Claude 模型。合作重点是 Google 的 TPU 方案，由 Broadcom 参与定制芯片设计，规模上跨入 GW 级，这在目前公开的算力采购中属第一梯队，意味着 Anthropic 在 Amazon Trainium 之外继续深度绑定 TPU 路线，形成多供应商、多架构的算力储备。对中文 AI 工程师的实际意义：一是 Claude 后续版本的上下文长度、吞吐和价格曲线大概率会因 TPU 新一代芯片而明显变化，长 context window 与高并发 agent、tool use 场景的成本结构值得重新评估；二是 TPU 生态（JAX、XLA、Pathways）在前沿模型训练中的权重进一步上升，做基础设施和推理优化的团队可以提早关注。公告属于战略层面，具体 GW 数量、交付时间表、芯片代号及对 API 定价和 rate limit 的影响，原文未透露具体细节。"
+    }
+  ],
+  "summarized_at": "2026-04-20T12:23:48.677442+00:00"
+}

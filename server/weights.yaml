@@ -1,0 +1,108 @@
+# 权重配置 —— 由 reflection 每 14 天自动调整
+# 修改后立即生效；reflection 会归档旧版本到 data/weights_history/
+
+version: 1
+last_updated: 2026-04-20
+next_reflection: 2026-05-04
+reflection_interval_days: 14
+
+# ===== 4 维信号占比 =====
+signal_weights:
+  source_authority: 0.35
+  topic_match: 0.30
+  engagement: 0.20
+  recency: 0.15
+
+# ===== 源权威性 (0.0 - 1.0) =====
+# 未列出的源默认 0.5
+source_weights:
+  # 一手实验室
+  anthropic_news: 1.0
+  anthropic_engineering: 1.0
+  openai_blog: 1.0
+  deepmind_blog: 0.95
+  meta_ai: 0.9
+  mistral_news: 0.85
+  huggingface_blog: 0.85
+
+  # 论文
+  huggingface_papers: 0.95
+  arxiv_cs_cl: 0.85
+  arxiv_cs_lg: 0.85
+  dair_ai_papers: 0.9
+
+  # 个人/Newsletter
+  simon_willison: 0.9
+  latent_space: 0.85
+  import_ai: 0.9
+  ahead_of_ai: 0.85
+  the_batch: 0.8
+
+  # 论坛
+  hn_ai_llm: 0.7
+  hn_ai_claude: 0.7
+  hn_ai_openai: 0.7
+  reddit_localllama: 0.65
+  reddit_machinelearning: 0.6
+  reddit_claudeai: 0.55
+  reddit_openai: 0.55
+
+  # 工具
+  langchain_releases: 0.65
+  llamaindex_releases: 0.65
+
+# ===== 主题权重 (0.0 - 1.0) =====
+# Claude 给文章打这些标签后用于加权
+topic_weights:
+  agent_architecture: 1.0       # Agent 设计、多步推理、tool use
+  llm_engineering: 0.95         # Prompt、上下文管理、工程实践
+  model_release: 0.95           # 新模型发布
+  benchmark_eval: 0.8           # 基准、评测
+  rag: 0.85                     # 检索增强
+  multimodal: 0.75              # 视觉、音频、视频
+  fine_tuning: 0.7              # 微调、PEFT、LoRA
+  reasoning: 0.9                # 推理能力研究
+  safety_alignment: 0.6         # 安全、对齐
+  inference_hardware: 0.5       # 硬件、推理优化
+  open_source: 0.75             # 开源模型/工具
+  developer_tools: 0.8          # IDE、CLI、SDK
+  business_news: 0.3            # 投融资、人事、商业八卦
+  policy_regulation: 0.4        # 政策、监管
+  other: 0.5                    # 兜底
+
+# ===== 热度归一化 =====
+# 不同源的热度信号原始量级差很多，需归一化到 0-1
+engagement_normalization:
+  hn_ai_llm:
+    metric: points
+    full_score_at: 200
+  hn_ai_claude:
+    metric: points
+    full_score_at: 200
+  hn_ai_openai:
+    metric: points
+    full_score_at: 200
+  reddit_localllama:
+    metric: ups
+    full_score_at: 500
+  reddit_machinelearning:
+    metric: ups
+    full_score_at: 300
+  reddit_claudeai:
+    metric: ups
+    full_score_at: 200
+  reddit_openai:
+    metric: ups
+    full_score_at: 300
+  huggingface_papers:
+    metric: trending_rank        # 排名越靠前分越高
+    full_score_at: 1
+  default:
+    metric: none                 # 没热度信号的源用 0.5 兜底
+    full_score_at: 1
+
+# ===== 时间衰减 =====
+recency:
+  full_score_hours: 24           # 24h 内满分
+  half_life_hours: 72            # 72h 后衰减到 0.5
+  cutoff_hours: 168              # 7 天前不参选

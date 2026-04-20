@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}归档 · AI Daily{% endblock %}
+{% block content %}
+<section class="archive">
+  <h1>归档</h1>
+  <p class="meta">共 {{ entries|length }} 期</p>
+  <ul class="archive-list">
+  {% for e in entries %}
+    <li>
+      <a class="date" href="{{ e.file }}">{{ e.date_display }}</a>
+      <span class="preview">{{ e.headline }}</span>
+      <span class="count">{{ e.count }} 篇</span>
+    </li>
+  {% endfor %}
+  </ul>
+</section>
+{% endblock %}

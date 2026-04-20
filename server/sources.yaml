@@ -1,0 +1,142 @@
+# AI/LLM 资讯源清单
+# type: rss | hn_algolia | reddit_rss | hf_papers | arxiv_rss | github_releases
+# 抓取时按 type 走不同 fetcher。新加源只需在此追加即可。
+
+sources:
+  # ---- 一手实验室博客 ----
+  - name: anthropic_news
+    type: anthropic_html
+    url: https://www.anthropic.com/news
+    category: lab_official
+
+  - name: anthropic_engineering
+    type: anthropic_html
+    url: https://www.anthropic.com/engineering
+    category: lab_official
+
+  - name: openai_blog
+    type: rss
+    url: https://openai.com/blog/rss.xml
+    category: lab_official
+
+  - name: deepmind_blog
+    type: rss
+    url: https://deepmind.google/blog/rss.xml
+    category: lab_official
+
+  - name: meta_ai
+    type: rss
+    url: https://ai.meta.com/blog/rss/
+    category: lab_official
+    enabled: false   # 400, 官网无 RSS, 需 HTML 抓取
+
+  - name: mistral_news
+    type: rss
+    url: https://mistral.ai/news/rss.xml
+    category: lab_official
+    enabled: false   # 404, 官网无 RSS, 需 HTML 抓取
+
+  - name: huggingface_blog
+    type: rss
+    url: https://huggingface.co/blog/feed.xml
+    category: community_official
+
+  # ---- 论文聚合 ----
+  - name: huggingface_papers
+    type: hf_papers
+    url: https://huggingface.co/papers
+    category: papers
+
+  - name: arxiv_cs_cl
+    type: arxiv_rss
+    url: http://export.arxiv.org/rss/cs.CL
+    category: papers
+
+  - name: arxiv_cs_lg
+    type: arxiv_rss
+    url: http://export.arxiv.org/rss/cs.LG
+    category: papers
+
+  - name: dair_ai_papers
+    type: github_releases
+    url: https://api.github.com/repos/dair-ai/ML-Papers-of-the-Week/commits
+    category: papers
+
+  # ---- 高质量个人/社区博客 ----
+  - name: simon_willison
+    type: rss
+    url: https://simonwillison.net/atom/everything/
+    category: individual_expert
+
+  - name: latent_space
+    type: rss
+    url: https://www.latent.space/feed
+    category: community_blog
+
+  - name: import_ai
+    type: rss
+    url: https://importai.substack.com/feed
+    category: newsletter
+    enabled: false   # Substack 403, 待修
+
+  - name: ahead_of_ai
+    type: rss
+    url: https://magazine.sebastianraschka.com/feed
+    category: newsletter
+
+  - name: the_batch
+    type: rss
+    url: https://www.deeplearning.ai/the-batch/rss/
+    category: newsletter
+    enabled: false   # 404, RSS 已下线
+
+  # ---- 论坛/社区热度信号 ----
+  - name: hn_ai_llm
+    type: hn_algolia
+    url: https://hn.algolia.com/api/v1/search_by_date?tags=story&query=LLM&numericFilters=points%3E30
+    category: forum
+
+  - name: hn_ai_claude
+    type: hn_algolia
+    url: https://hn.algolia.com/api/v1/search_by_date?tags=story&query=Claude&numericFilters=points%3E30
+    category: forum
+
+  - name: hn_ai_openai
+    type: hn_algolia
+    url: https://hn.algolia.com/api/v1/search_by_date?tags=story&query=OpenAI&numericFilters=points%3E30
+    category: forum
+
+  - name: reddit_localllama
+    type: rss
+    url: https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day
+    category: forum
+
+  - name: reddit_machinelearning
+    type: rss
+    url: https://www.reddit.com/r/MachineLearning/top/.rss?t=day
+    category: forum
+    enabled: false   # 间歇 403, 待 OAuth 修复
+
+  - name: reddit_claudeai
+    type: rss
+    url: https://www.reddit.com/r/ClaudeAI/top/.rss?t=day
+    category: forum
+    enabled: false   # 间歇 403, 待 OAuth 修复
+
+  - name: reddit_openai
+    type: rss
+    url: https://www.reddit.com/r/OpenAI/top/.rss?t=day
+    category: forum
+    enabled: false   # 间歇 403, 待 OAuth 修复
+
+  # ---- 工具/框架更新 ----
+  # langchain / llamaindex 的官方 RSS 已移除/失效，改用 GitHub release 跟进
+  - name: langchain_releases
+    type: github_releases
+    url: https://api.github.com/repos/langchain-ai/langchain/releases
+    category: tooling
+
+  - name: llamaindex_releases
+    type: github_releases
+    url: https://api.github.com/repos/run-llama/llama_index/releases
+    category: tooling

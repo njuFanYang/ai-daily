@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+
+# Logs
+server/logs/
+
+# Crawl artifacts (regenerable, bulky)
+server/data/raw/
+server/data/scored/
+
+# Keep these committed (small JSON, historical record):
+# - server/data/picked/     (final curated + translated)
+# - server/data/reflections/ (weight reflection reports)
+# - server/data/weights_history/ (old weight versions)
+
+# Editor
+.vscode/
+.idea/
+*.swp
