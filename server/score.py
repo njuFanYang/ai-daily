@@ -25,6 +25,7 @@ from dateutil import parser as dateparser
 ROOT = Path(__file__).resolve().parent
 RAW_DIR = ROOT / "data" / "raw"
 SCORED_DIR = ROOT / "data" / "scored"
+PICKED_DIR = ROOT / "data" / "picked"
 WEIGHTS_FILE = ROOT / "weights.yaml"
 LOG_DIR = ROOT / "logs"
 SCORED_DIR.mkdir(parents=True, exist_ok=True)
@@ -146,6 +147,23 @@ def score_article(article: dict, weights: dict) -> dict:
 
 # ============== Main ==============
 
+def load_previously_picked_ids(exclude_date: str) -> set[str]:
+    """Collect all article IDs that were already shown in any past daily pick,
+    excluding today's own file (so re-running today doesn't self-filter)."""
+    ids: set[str] = set()
+    for f in PICKED_DIR.glob("*.json"):
+        if f.stem == exclude_date:
+            continue
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for a in d.get("articles", []):
+            if a.get("id"):
+                ids.add(a["id"])
+    return ids
+
+
 def main(date: str | None = None, top_n: int = 60):
     date = date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
     raw_file = RAW_DIR / f"{date}.json"
@@ -156,7 +174,15 @@ def main(date: str | None = None, top_n: int = 60):
     raw = json.loads(raw_file.read_text(encoding="utf-8"))
     weights = yaml.safe_load(WEIGHTS_FILE.read_text(encoding="utf-8"))
 
-    scored = [score_article(a, weights) for a in raw["articles"]]
+    seen = load_previously_picked_ids(exclude_date=date)
+    before = len(raw["articles"])
+    fresh = [a for a in raw["articles"] if a["id"] not in seen]
+    filtered = before - len(fresh)
+    if filtered:
+        log.info("cross-day dedup: dropped %d articles already picked in past days (pool %d → %d)",
+                 filtered, before, len(fresh))
+
+    scored = [score_article(a, weights) for a in fresh]
     scored.sort(key=lambda x: x["score"], reverse=True)
 
     out_file = SCORED_DIR / f"{date}.json"
@@ -164,6 +190,8 @@ def main(date: str | None = None, top_n: int = 60):
         "date": date,
         "scored_at": datetime.now(timezone.utc).isoformat(),
         "weights_version": weights.get("version"),
+        "raw_total": before,
+        "filtered_duplicates": filtered,
         "total_input": len(scored),
         "top_n": top_n,
         "articles": scored[:top_n],
