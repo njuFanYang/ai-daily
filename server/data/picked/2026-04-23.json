@@ -1,0 +1,362 @@
+{
+  "date": "2026-04-23",
+  "picked_at": "2026-04-23T02:31:26.988385+00:00",
+  "count": 10,
+  "articles": [
+    {
+      "id": "c71ef79e3212dc88",
+      "source": "openai_blog",
+      "category": "lab_official",
+      "title": "Introducing workspace agents in ChatGPT",
+      "url": "https://openai.com/index/introducing-workspace-agents-in-chatgpt",
+      "summary": "Workspace agents in ChatGPT are Codex-powered agents that automate complex workflows, run in the cloud, and help teams scale work across tools securely.",
+      "published": "2026-04-22T10:00:00+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": ""
+      },
+      "score": 0.9,
+      "score_breakdown": {
+        "source_authority": 1.0,
+        "topic_match": 1.0,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture",
+        "model_release"
+      ],
+      "rank": 1,
+      "topics": [
+        "agent_architecture",
+        "developer_tools"
+      ],
+      "zh_title": "ChatGPT 工作区 Agent 上线：Codex 驱动团队自动化",
+      "pick_reason": "OpenAI 正式把 Codex Agent 搬进企业工作区，对一线落地有直接影响",
+      "zh_summary": "OpenAI 在 ChatGPT 中上线 workspace agents，基于 Codex 构建，运行在云端，专门用于自动化跨工具的复杂工作流。定位上不同于面向个人的 ChatGPT agent，而是面向团队场景：多 agent 并行处理任务、跨 SaaS 工具打通、企业级权限与安全管控一并纳入。对工程师的实际意义在于，可以把过去需要手写脚本或 n8n、Zapier 串起来的长链路工作流（例如从 Jira 拉工单、查数据库、改代码、发 PR、同步 Slack）交给 agent 端到端执行，底层复用 Codex 的代码与工具调用能力，而非纯对话式的 tool use。官方强调\"安全地扩展团队工作量\"，暗示其面向 Enterprise/Team 套餐，带有审计、权限隔离、数据边界等治理特性。原文未透露具体的模型版本、context window、benchmark 成绩、定价以及可接入工具清单，也没有给出与 Claude Computer Use、Devin 等竞品的对比数据，若要评估实际落地能力仍需点进原文或等待后续技术细节披露。"
+    },
+    {
+      "id": "8f555fe918e1ef56",
+      "source": "openai_blog",
+      "category": "lab_official",
+      "title": "Speeding up agentic workflows with WebSockets in the Responses API",
+      "url": "https://openai.com/index/speeding-up-agentic-workflows-with-websockets",
+      "summary": "A deep dive into the Codex agent loop, showing how WebSockets and connection-scoped caching reduced API overhead and improved model latency.",
+      "published": "2026-04-22T10:00:00+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": ""
+      },
+      "score": 0.9,
+      "score_breakdown": {
+        "source_authority": 1.0,
+        "topic_match": 1.0,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture",
+        "inference_hardware"
+      ],
+      "rank": 2,
+      "topics": [
+        "agent_architecture",
+        "llm_engineering"
+      ],
+      "zh_title": "Codex 用 WebSocket 砍掉 Agent 循环延迟",
+      "pick_reason": "揭秘 Codex 连接级缓存与 WebSocket 优化，干货工程细节",
+      "zh_summary": "OpenAI 在 Responses API 中引入 WebSocket 传输，替代原有的 HTTP 长连接，用于 Codex agent 循环中的多轮交互。通过连接级缓存（connection-scoped caching），同一 session 内的 prompt prefix、tool 定义和 context 无需在每轮重复序列化与校验，显著削减了 API 调用的协议开销和首 token 延迟。对于需要频繁调用 tool use、迭代执行的 agent 工作流，这种改造能让单轮之间的\"黏连\"更紧，端到端响应更接近本地推理的节奏。原文披露了 Codex 内部 agent loop 的落地细节，包括连接生命周期管理、缓存失效策略如何与 prompt caching 协同。对于正在自研 agent 框架、受制于 HTTP 轮询延迟或 token 重传成本的工程师，值得参考其传输层优化思路；若只使用单轮 chat completion，增量价值有限。具体的延迟降幅数字、吞吐对比和 SDK 接入方式原文未在摘要中透露，需点进原文查看基准测试数据。"
+    },
+    {
+      "id": "0f697d747d9cd288",
+      "source": "openai_blog",
+      "category": "lab_official",
+      "title": "Introducing ChatGPT Images 2.0",
+      "url": "https://openai.com/index/introducing-chatgpt-images-2-0",
+      "summary": "ChatGPT Images 2.0 introduces a state-of-the-art image generation model with improved text rendering, multilingual support, and advanced visual reasoning.",
+      "published": "2026-04-21T12:00:00+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": ""
+      },
+      "score": 0.8054,
+      "score_breakdown": {
+        "source_authority": 1.0,
+        "topic_match": 0.75,
+        "engagement": 0.5,
+        "recency": 0.87
+      },
+      "topic_tags_heuristic": [
+        "model_release",
+        "multimodal",
+        "reasoning"
+      ],
+      "rank": 3,
+      "topics": [
+        "model_release",
+        "multimodal"
+      ],
+      "zh_title": "ChatGPT Images 2.0 发布：文本渲染与多语言大跃",
+      "pick_reason": "OpenAI 新图像模型上线，Altman 称跃迁相当于 GPT-3 到 GPT-5",
+      "zh_summary": "OpenAI 发布 ChatGPT Images 2.0，在 text rendering、多语言支持以及视觉推理三方面做了升级，定位为 SOTA 图像生成模型。对工程师而言，text rendering 改进意味着海报、UI mockup、信息图这类包含长段文字的生成场景终于可能摆脱以往字形扭曲、拼写错乱的老问题；多语言支持则对应中日韩等非拉丁字符在图中的正确呈现，之前几代模型在这块短板明显。\"Advanced visual reasoning\" 的具体含义官方表述较模糊，可能指向更复杂的空间关系、物体计数、图文对照等生成指令的理解能力，但原文未透露具体 benchmark 数字、模型架构、是否为 MoE、推理成本、API 价格、调用方式与 rate limit 等工程落地最关心的信息，也没有给出与 GPT-Image-1、Gemini、Imagen、FLUX 等竞品的对比数据。想评估是否替换现有图像生成 pipeline 的团队，目前只能从这篇预告获得方向性信号，具体选型仍需等待技术报告或自行跑测试集验证。"
+    },
+    {
+      "id": "c37f793c559c2ed9",
+      "source": "simon_willison",
+      "category": "individual_expert",
+      "title": "Qwen3.6-27B: Flagship-Level Coding in a 27B Dense Model",
+      "url": "https://simonwillison.net/2026/Apr/22/qwen36-27b/#atom-everything",
+      "summary": "Qwen3.6-27B: Flagship-Level Coding in a 27B Dense Model Big claims from Qwen about their latest open weight model: Qwen3.6-27B delivers flagship-level agentic coding performance, surpassing the previous-generation open-source flagship Qwen3.5-397B-A17B (397B total / 17B active MoE) across all major coding benchmarks. On Hugging Face Qwen3.5-397B-A17B is 807GB, this new Qwen3.6-27B is 55.6GB. I tried it out with the 16.8GB Unsloth Qwen3.6-27B-GGUF:Q4_K_M quantized version and llama-server using this recipe by benob on Hacker News , after first installing llama-server using brew install llama.cpp : llama-server \\ -hf unsloth/Qwen3.6-27B-GGUF:Q4_K_M \\ --no-mmproj \\ --fit on \\ -np 1 \\ -c 65536 \\ --cache-ram 4096 -ctxcp 2 \\ --jinja \\ --temp 0.6 \\ --top-p 0.95 \\ --top-k 20 \\ --min-p 0.0 \\ --presence-penalty 0.0 \\ --repeat-penalty 1.0 \\ --reasoning on \\ --chat-template-kwargs '{\"preserve_thinking\": true}' On first run that saved the ~17GB model to ~/.cache/huggingface/hub/models--unsloth--Qwen3.6-27B-GGUF . Here's the transcript for \"Generate an SVG of a pelican riding a bicycle\". This is an outstanding result for a 16.8GB local model: Performance numbers reported by llama-server : Readin",
+      "published": "2026-04-22T16:45:23+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": ""
+      },
+      "score": 0.765,
+      "score_breakdown": {
+        "source_authority": 0.9,
+        "topic_match": 0.667,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture",
+        "benchmark_eval",
+        "reasoning",
+        "open_source"
+      ],
+      "rank": 4,
+      "topics": [
+        "model_release",
+        "open_source",
+        "benchmark_eval"
+      ],
+      "zh_title": "Qwen3.6-27B 稠密模型：55GB 吊打 800GB 前代",
+      "pick_reason": "27B 稠密开源模型编码能力超越上代 397B MoE，本地部署友好",
+      "zh_summary": "Qwen3.6-27B 是一款 27B 稠密开源模型，官方称其 agentic coding 能力全面超越上一代旗舰 Qwen3.5-397B-A17B（MoE，总参 397B、激活 17B）。体积差距悬殊：旧旗舰在 Hugging Face 上占 807GB，而新模型仅 55.6GB，Unsloth 的 Q4_K_M GGUF 量化版更只有 16.8GB，可在本地用 llama-server 直接跑起来。Simon Willison 实测了这个量化版，用经典的\"画一只骑自行车的鹈鹕 SVG\"任务验证，认为对于一个 16.8GB 的本地模型来说结果相当出色。文中给出了完整的 llama-server 启动参数，包括 65536 的 context window、推荐的采样参数（temp 0.6、top-p 0.95、top-k 20）、开启 reasoning 模式以及 preserve_thinking 的 chat template 配置，可直接照搬上手。对工程师的实际意义：旗舰级 coding 能力首次压进 30B 以下稠密架构，本地部署门槛大幅降低，显存需求从服务器级掉到消费级硬件可承受的范围。具体 benchmark 分数原文未透露细节。"
+    },
+    {
+      "id": "2c96923e2106d91b",
+      "source": "simon_willison",
+      "category": "individual_expert",
+      "title": "Changes to GitHub Copilot Individual plans",
+      "url": "https://simonwillison.net/2026/Apr/22/changes-to-github-copilot/#atom-everything",
+      "summary": "Changes to GitHub Copilot Individual plans On the same day as Claude Code's temporary will-they-won't-they $100/month kerfuffle (for the moment, they won't ), here's the latest on GitHub Copilot pricing. Unlike Anthropic, GitHub put up an official announcement about their changes, which include tightening usage limits, pausing signups for individual plans (!), restricting Claude Opus 4.7 to the more expensive $39/month \"Pro+\" plan, and dropping the previous Opus models entirely. The key paragraph: Agentic workflows have fundamentally changed Copilot’s compute demands. Long-running, parallelized sessions now regularly consume far more resources than the original plan structure was built to support. As Copilot’s agentic capabilities have expanded rapidly, agents are doing more work, and more customers are hitting usage limits designed to maintain service reliability. It's easy to forget that just six months ago heavy LLM users were burning an order of magnitude less tokens. Coding agents consume a lot of compute. Copilot was also unique (I believe) among agents in charging per-request, not per-token. ( Correction: Windsurf also operated a credit system like this which they abandoned ",
+      "published": "2026-04-22T03:30:02+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": ""
+      },
+      "score": 0.865,
+      "score_breakdown": {
+        "source_authority": 0.9,
+        "topic_match": 1.0,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture",
+        "model_release",
+        "rag"
+      ],
+      "rank": 5,
+      "topics": [
+        "business_news",
+        "developer_tools"
+      ],
+      "zh_title": "GitHub Copilot 大改价：限量、暂停个人订阅",
+      "pick_reason": "Copilot 收紧配额、暂停注册、限制 Opus 4.7，影响所有付费开发者",
+      "zh_summary": "GitHub Copilot 个人版迎来大调整：暂停新用户注册、收紧用量上限、将 Claude Opus 4.7 限制在 39 美元/月的 Pro+ 档，旧版 Opus 模型则被直接下架。官方解释是 agentic workflow 彻底改变了 Copilot 的算力结构——长时运行、并行执行的 session 消耗远超原定价模型的承受力，越来越多用户撞到为保障服务稳定而设的限额。作者点出一个容易被忽略的事实：仅仅半年前，重度 LLM 用户的 token 消耗量还要低一个数量级，coding agent 是真正的算力吞噬者。另一个值得工程师注意的细节是，Copilot 此前在业内少见地按请求而非按 token 计费（Windsurf 的 credit 制已被放弃）。消息发布同一天，Claude Code 也上演了 100 美元/月订阅的反复传闻，最终暂未落地。对依赖 Copilot 做 agent 开发的工程师而言，这意味着要么升级到 Pro+ 用上 Opus 4.7，要么重新评估工具链与预算。"
+    },
+    {
+      "id": "1d8a38f4e5131609",
+      "source": "simon_willison",
+      "category": "individual_expert",
+      "title": "Is Claude Code going to cost $100/month? Probably not - it's all very confusing",
+      "url": "https://simonwillison.net/2026/Apr/22/claude-code-confusion/#atom-everything",
+      "summary": "Anthropic today quietly (as in silently , no announcement anywhere at all) updated their claude.com/pricing page (but not their Choosing a Claude plan page , which shows up first for me on Google) to add this tiny but significant detail (arrow is mine, and it's already reverted ): The Internet Archive copy from yesterday shows a checkbox there. Claude Code used to be a feature of the $20/month Pro plan, but according to the new pricing page it is now exclusive to the $100/month or $200/month Max plans. Update : don't miss the update to this post , they've already changed course a few hours after this change went live. So what the heck is going on? Unsurprisingly, Reddit and Hacker News and Twitter all caught fire. I didn't believe the screenshots myself when I first saw them - aside from the pricing grid I could find no announcement from Anthropic anywhere. Then Amol Avasare, Anthropic's Head of Growth, tweeted : For clarity, we're running a small test on ~2% of new prosumer signups. Existing Pro and Max subscribers aren't affected. And that appears to be the closest we have had to official messaging from Anthropic. I don't buy the \"~2% of new prosumer signups\" thing, since everyon",
+      "published": "2026-04-22T02:07:34+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": ""
+      },
+      "score": 0.7544,
+      "score_breakdown": {
+        "source_authority": 0.9,
+        "topic_match": 0.633,
+        "engagement": 0.5,
+        "recency": 0.996
+      },
+      "topic_tags_heuristic": [
+        "model_release",
+        "developer_tools"
+      ],
+      "rank": 6,
+      "topics": [
+        "business_news",
+        "developer_tools"
+      ],
+      "zh_title": "Claude Code 要涨到 $100/月？Anthropic 的乌龙",
+      "pick_reason": "Anthropic 悄改定价页又撤回，订阅用户必须关注的动态",
+      "zh_summary": "Anthropic 悄悄更新了 claude.com/pricing 页面，把 Claude Code 从 $20/月的 Pro 套餐中移除，标注为仅限 $100/月 Max 或 $200/月 Max 套餐。改动没有任何官方公告，甚至定价对比页面\"Choosing a Claude plan\"仍保留旧版信息，Internet Archive 前一天的快照还能看到 Pro 套餐下的勾选框。Reddit、Hacker News、Twitter 随即炸锅。Anthropic 增长负责人 Amol Avasare 在推文中解释这只是针对\"约 2% 新 prosumer 注册用户\"的小范围测试，现有 Pro 和 Max 订阅者不受影响，但作者明确表示不相信这个说法，因为多人都观察到了改动。几小时后 Anthropic 已撤回该变更（文章附有 Update 说明）。对工程师的实际含义：Pro 套餐目前仍能用 Claude Code，但 Anthropic 显然在试探把它作为高价套餐独占功能的可行性，值得关注后续动向。"
+    },
+    {
+      "id": "bb4c60b19b246a2f",
+      "source": "anthropic_engineering",
+      "category": "lab_official",
+      "title": "Desktop Extensions: One-click MCP server installation for Claude Desktop Jun 26, 2025",
+      "url": "https://www.anthropic.com/engineering/desktop-extensions",
+      "summary": "",
+      "published": "2026-04-23T02:30:51.552426+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "slug": "/engineering/desktop-extensions"
+      },
+      "score": 0.84,
+      "score_breakdown": {
+        "source_authority": 1.0,
+        "topic_match": 0.8,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "developer_tools"
+      ],
+      "rank": 7,
+      "topics": [
+        "developer_tools",
+        "agent_architecture"
+      ],
+      "zh_title": "Claude Desktop 一键装 MCP：桌面扩展机制详解",
+      "pick_reason": "官方给出 MCP Server 的标准化分发方案，MCP 生态关键一步",
+      "zh_summary": "Anthropic 推出 Desktop Extensions（.dxt 格式），把 MCP server 的安装从\"装 Node/Python 运行时、改 JSON 配置、处理依赖冲突\"压缩成一次点击。.dxt 本质是打包了 server 代码、依赖和 manifest 的压缩包，Claude Desktop 直接解压运行，普通用户不必再碰终端。对工程师的意义在于：MCP server 的分发门槛被显著拉低，面向非技术用户的本地 tool use 场景从此具备可行的交付形态；同时 Anthropic 开放了扩展目录与提交流程，开发者可把自己的 MCP server 打包成 .dxt 直接投放。文章还涉及 manifest schema、密钥与用户配置的处理、跨平台打包约定等实现细节，原文未透露具体的沙箱隔离与权限模型深度。适合正在做 MCP server、考虑给桌面端 Claude 做集成，或关注 LLM 本地工具生态分发方式的工程师。"
+    },
+    {
+      "id": "2e50ab69ebea3b2c",
+      "source": "anthropic_engineering",
+      "category": "lab_official",
+      "title": "Equipping agents for the real world with Agent Skills Oct 16, 2025",
+      "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "summary": "",
+      "published": "2026-04-23T02:30:51.552158+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "slug": "/engineering/equipping-agents-for-the-real-world-with-agent-skills"
+      },
+      "score": 0.8,
+      "score_breakdown": {
+        "source_authority": 1.0,
+        "topic_match": 0.667,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture"
+      ],
+      "rank": 8,
+      "topics": [
+        "agent_architecture",
+        "developer_tools"
+      ],
+      "zh_title": "Agent Skills：把真实世界技能装进 Claude",
+      "pick_reason": "Anthropic 官方阐述 Agent Skills 设计哲学，Agent 架构师必读",
+      "zh_summary": "Anthropic 工程团队发布 Agent Skills 机制，用于为 agent 装配可复用的\"技能包\"以应对真实世界任务。从标题推测，核心思路是把特定领域的操作流程、知识和 tool use 封装成模块化 skill，让 agent 按需加载，避免把所有能力一股脑塞进 system prompt 或 context window。对工程师而言，这意味着构建 agent 时不必再为每个场景重写 prompt 或硬编码工作流，而是可以像装插件一样组合 skill，降低维护成本并提升跨任务复用性；同时也暗示 Claude 平台侧可能提供官方 skill 运行时或 SDK 支持。不过原文列表页未提供摘要，具体实现形式（文件结构、加载时机、与 MCP/tool use 的关系、是否开源、性能 benchmark、相比传统 prompt engineering 的实测提升）均未透露，需点进原文确认。建议做 agent 应用、Claude Code 定制或企业级 agent 框架的工程师优先阅读，对比自己现有的 prompt/tool 组织方式是否值得迁移。"
+    },
+    {
+      "id": "b77235353457c81e",
+      "source": "anthropic_engineering",
+      "category": "lab_official",
+      "title": "Claude Code: Best practices for agentic coding Apr 18, 2025",
+      "url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+      "summary": "",
+      "published": "2026-04-23T02:30:51.552550+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "slug": "/engineering/claude-code-best-practices"
+      },
+      "score": 0.8,
+      "score_breakdown": {
+        "source_authority": 1.0,
+        "topic_match": 0.667,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture"
+      ],
+      "rank": 9,
+      "topics": [
+        "agent_architecture",
+        "developer_tools"
+      ],
+      "zh_title": "Claude Code 官方实战手册：Agent 编码最佳实践",
+      "pick_reason": "Anthropic 工程团队系统总结 Agent Coding 经验，落地参考价值高",
+      "zh_summary": "Anthropic 官方整理的 Claude Code 实战手册，面向把它当 agent 用、而不是当补全插件用的工程师。核心套路是用仓库根目录的 CLAUDE.md 沉淀项目规范、常用命令、代码风格和踩坑记录，让 Claude 每次进场自带上下文；配合 .claude/settings.json 的 allowlist 精细放权，避免每条 bash 都弹确认。工作流上推荐 explore–plan–code–commit 四步法，复杂任务先让它读代码、画方案，再动手写，必要时让它跑测试、看截图、读 GitHub issue 自我校验；对 UI 类改动强调把 Playwright/截图塞进循环，让 agent 自己看结果迭代。还给出了 headless 模式跑 CI、多 Claude 实例分工（一个写、一个审）、用 git worktree 并行多任务等进阶玩法，以及 /clear 管上下文、用子 agent 隔离噪声等省 token 技巧。原文未透露具体 benchmark 数字，但列了不少可直接照搬的 prompt 模板和目录结构建议。"
+    },
+    {
+      "id": "007f82b82868dd0d",
+      "source": "arxiv_cs_lg",
+      "category": "papers",
+      "title": "HELM: Harness-Enhanced Long-horizon Memory for Vision-Language-Action Manipulation",
+      "url": "https://arxiv.org/abs/2604.18791",
+      "summary": "Vision-Language-Action (VLA) models fail systematically on long-horizon manipulation tasks despite strong short-horizon performance. We show that this failure is not resolved by extending context length alone in the current reactive execution setting; instead, it stems from three recurring execution-loop deficiencies: the memory gap, the verification gap, and the recovery gap. We present HELM, a model-agnostic framework that addresses these deficiencies with three components: an Episodic Memory Module (EMM) that retrieves key task history via CLIP-indexed keyframes, a learned State Verifier (SV) that predicts action failure before execution from observation, action, subgoal, and memory-conditioned context, and a Harness Controller (HC) that performs rollback and replanning. The SV is the core learning contribution: it consistently outperforms rule-based feasibility checks and ensemble uncertainty baselines, and its effectiveness depends critically on access to episodic memory. On LIBER",
+      "published": "2026-04-22T04:00:00+00:00",
+      "engagement": {
+        "metric": null,
+        "value": null
+      },
+      "raw_meta": {
+        "author": "Zijian Zeng, Fei Ding, Huiming Yang, Xianwei Li"
+      },
+      "score": 0.8325,
+      "score_breakdown": {
+        "source_authority": 0.85,
+        "topic_match": 0.95,
+        "engagement": 0.5,
+        "recency": 1.0
+      },
+      "topic_tags_heuristic": [
+        "agent_architecture",
+        "model_release",
+        "multimodal",
+        "developer_tools"
+      ],
+      "rank": 10,
+      "topics": [
+        "agent_architecture",
+        "multimodal"
+      ],
+      "zh_title": "HELM：给 VLA 模型补上长程记忆与自检",
+      "pick_reason": "直指 VLA 长程任务三大缺陷，给出记忆+验证+恢复新框架",
+      "zh_summary": "VLA 模型在长程操控任务上系统性失败，根源不是 context window 不够长，而是 reactive 执行回路里三个缺口：memory gap、verification gap、recovery gap。HELM 是一个与底层模型解耦的框架，用三件套补齐：Episodic Memory Module（EMM）通过 CLIP 索引的关键帧检索任务历史；State Verifier（SV）在动作执行前，基于观测、动作、子目标和 memory 条件上下文预测失败；Harness Controller（HC）负责回滚和 replanning。核心学习贡献是 SV，作者声称它稳定优于基于规则的可行性检查和 ensemble 不确定性 baseline，而且离开 episodic memory 就明显掉点，说明\"记忆\"不是装饰而是 verifier 能工作的前提。原文摘要在 LIBERO 基准处被截断，具体数字未透露，但工程上的启示很清楚：给 VLA 套一层可回滚的 harness，比单纯堆长上下文或训更大模型更能解决长程失败，适合正在做机器人或 agent 执行可靠性的工程师一读。"
+    }
+  ],
+  "summarized_at": "2026-04-23T02:33:36.126749+00:00"
+}
